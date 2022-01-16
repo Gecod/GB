@@ -1,0 +1,141 @@
+# êîïèðîâàíèå èç êîíñîëè Moba X-Term (èç-ïîä Windows)
+scp -i /drives/d/id_rsa_student559_13 /drives/d/California_house_prices.csv student559_13@37.139.41.176:/home/student559_13/
+
+# ïîñëå ïîäêëþ÷åíèÿ ê ñåðâåðó
+
+Authenticating with public key "Imported-Openssh-Key: D:\\Prog\\MobaXterm\\keys\\id_rsa_student559_13"
+    -----------------------------------------------------------------------¬
+    ¦                 • MobaXterm Personal Edition v21.3 •                 ¦
+    ¦               (SSH client, X server and network tools)               ¦
+    ¦                                                                      ¦
+    ¦ > SSH session to student559_13@37.139.41.176                         ¦
+    ¦   • Direct SSH      :  +                                             ¦
+    ¦   • SSH compression :  +                                             ¦
+    ¦   • SSH-browser     :  +                                             ¦
+    ¦   • X11-forwarding  :  -  (disabled or not supported by server)      ¦
+    ¦                                                                      ¦
+    ¦ > For more info, ctrl+click on help or visit our website.            ¦
+    L-----------------------------------------------------------------------
+
+Last login: Sun Jan 16 19:07:18 2022 from 109.229.109.61
+[student559_13@bigdataanalytics-worker-3 ~]$ hdfs dfs -put /home/student559_13/California_house_prices.csv /user/student559_13/
+[student559_13@bigdataanalytics-worker-3 ~]$ hdfs dfs -ls
+Found 2 items
+drwxr-xr-x   - student559_13 student559_13          0 2022-01-16 19:59 .sparkStaging
+-rw-r--r--   2 student559_13 student559_13    1185934 2022-01-16 20:03 California_house_prices.csv
+[student559_13@bigdataanalytics-worker-3 ~]$ pyspark
+SPARK_MAJOR_VERSION is set to 2, using Spark2
+Python 2.7.5 (default, Nov 16 2020, 22:23:17)
+[GCC 4.8.5 20150623 (Red Hat 4.8.5-44)] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+Welcome to
+      ____              __
+     / __/__  ___ _____/ /__
+    _\ \/ _ \/ _ `/ __/  '_/
+   /__ / .__/\_,_/_/ /_/\_\   version 2.3.2.3.1.4.0-315
+      /_/
+
+Using Python version 2.7.5 (default, Nov 16 2020 22:23:17)
+SparkSession available as 'spark'.
+>>> from pyspark.sql import functions as F
+>>> df = spark \
+...     .read \
+...     .option("header", "true") \
+...     .option("inferSchema", "true") \
+...     .csv("/user/student559_13/California_house_prices.csv")
+>>> df.printSchema()
+root
+ |-- Id: integer (nullable = true)
+ |-- DistrictId: integer (nullable = true)
+ |-- Rooms: double (nullable = true)
+ |-- Square: double (nullable = true)
+ |-- LifeSquare: double (nullable = true)
+ |-- KitchenSquare: double (nullable = true)
+ |-- Floor: integer (nullable = true)
+ |-- HouseFloor: double (nullable = true)
+ |-- HouseYear: integer (nullable = true)
+ |-- Ecology_1: double (nullable = true)
+ |-- Ecology_2: string (nullable = true)
+ |-- Ecology_3: string (nullable = true)
+ |-- Social_1: integer (nullable = true)
+ |-- Social_2: integer (nullable = true)
+ |-- Social_3: integer (nullable = true)
+ |-- Healthcare_1: double (nullable = true)
+ |-- Helthcare_2: integer (nullable = true)
+ |-- Shops_1: integer (nullable = true)
+ |-- Shops_2: string (nullable = true)
+ |-- Price: double (nullable = true)
+
+>>> df.isStreaming
+False
+>>> df.count()
+10000
+>>> df.groupBy("HouseYear").agg({"Square": "avg", "Price": "avg"}).show()
+Hive Session ID = 304f9fdf-e8e7-4459-bbcb-5fbf5b7800ce
++---------+------------------+------------------+
+|HouseYear|        avg(Price)|       avg(Square)|
++---------+------------------+------------------+
+|     1959| 274317.7645305813| 58.19362071494162|
+|     1990|245096.17339993815| 56.29842285431698|
+|     1975|202257.38630430427| 47.24662080748997|
+|     1977| 180270.5267717304| 59.70681462466589|
+|     2003|293549.41417722113|60.875899086959045|
+|     2007| 251369.1683920457| 58.94807605310863|
+|     2018|212623.60167204213| 63.25931686559792|
+|     1974|204180.08608217322|47.542525295820454|
+|     2015|195809.21871337746| 61.52467313683311|
+|     1955| 347031.2501482923| 67.97494571087627|
+|     2006|281530.90418838244| 60.12588658281462|
+|     1978|221290.19479057225| 51.15364866377147|
+|     1961|229322.78156269924| 48.72997104716031|
+|     2013|190377.93179128537| 61.35880210665321|
+|     1942|481214.67854308104| 94.11751318930472|
+|     1939| 334940.2163402162| 78.22193087598775|
+|     1952|331045.91223728063| 66.83201544027733|
+|     1956|   339244.78517317| 68.99412350321482|
+|     1934|249822.15974763353|61.572719518578424|
+|     1997| 243856.7891696114| 58.97989575914591|
++---------+------------------+------------------+
+only showing top 20 rows
+
+>>> from pyspark.sql.types import DecimalType
+>>> df.groupBy("HouseYear") \
+...     .agg( \
+...         F.count(df["id"]).alias("count"), \
+...         F.avg(df["Square"]).cast(DecimalType(scale=2)).alias("avg_square"), \
+...         F.avg(F.col("Price")).cast(DecimalType(scale=2)).alias("avg_price"), \
+...         F.max(df["Price"]).cast(DecimalType(scale=2)).alias("max_price"), \
+...         F.min(df["Price"]).cast(DecimalType(scale=2)).alias("min_price") \
+...     ) \
+...     .orderBy("HouseYear", ascending=False) \
+...     .show()
++---------+-----+----------+---------+---------+---------+
+|HouseYear|count|avg_square|avg_price|max_price|min_price|
++---------+-----+----------+---------+---------+---------+
+| 20052011|    1|     37.27|254084.53|254084.53|254084.53|
+|     4968|    1|     44.79|243028.60|243028.60|243028.60|
+|     2020|   19|     60.66|239820.58|536020.26|106209.37|
+|     2019|   79|     67.65|205649.86|633233.47| 71690.97|
+|     2018|  175|     63.26|212623.60|492943.25| 63624.32|
+|     2017|  308|     60.96|207910.63|611250.91| 60918.57|
+|     2016|  305|     60.58|192167.81|594565.30| 65949.32|
+|     2015|  299|     61.52|195809.22|621002.91| 62819.17|
+|     2014|  210|     61.85|192348.03|585031.27| 61670.35|
+|     2013|   95|     61.36|190377.93|624549.35| 66242.60|
+|     2012|   75|     67.91|231099.25|624680.10| 64958.98|
+|     2011|   91|     71.61|224219.99|610557.41| 69748.50|
+|     2010|   85|     62.62|247549.45|616857.14| 66722.60|
+|     2009|   96|     60.05|241768.78|589179.48| 68894.51|
+|     2008|   95|     67.45|283354.07|586061.68| 71057.27|
+|     2007|   95|     58.95|251369.17|564216.23| 85692.71|
+|     2006|   78|     60.13|281530.90|620399.28| 91594.32|
+|     2005|  102|     63.86|289266.58|557202.35| 71319.38|
+|     2004|   99|     62.27|283352.18|625678.64| 62126.67|
+|     2003|   89|     60.88|293549.41|593618.75| 86392.76|
++---------+-----+----------+---------+---------+---------+
+only showing top 20 rows
+
+>>> exit()
+[student559_13@bigdataanalytics-worker-3 ~]$
