@@ -1,0 +1,434 @@
+---CREATE TOPIC & CONSUMER---
+
+Authenticating with public key "Imported-Openssh-Key: D:\\Prog\\MobaXterm\\keys\\id_rsa_student559_13"
+    -----------------------------------------------------------------------¬
+    ¦                 • MobaXterm Personal Edition v21.3 •                 ¦
+    ¦               (SSH client, X server and network tools)               ¦
+    ¦                                                                      ¦
+    ¦ ? SSH session to student559_13@37.139.41.176                         ¦
+    ¦   • Direct SSH      :  ?                                             ¦
+    ¦   • SSH compression :  ?                                             ¦
+    ¦   • SSH-browser     :  ?                                             ¦
+    ¦   • X11-forwarding  :  ?  (disabled or not supported by server)      ¦
+    ¦                                                                      ¦
+    ¦ ? For more info, ctrl+click on help or visit our website.            ¦
+    L-----------------------------------------------------------------------
+
+Last login: Sun Jan 23 14:08:11 2022 from 109.229.109.61
+
+[student559_13@bigdataanalytics-worker-3 ~]$ ps -ef | grep kafka
+student+  3227  3174  1 13:46 pts/10   00:00:30 /usr/java/oracle-jdk/bin/java -Dhdp.version=3.1.4.0-315 -cp /usr/hdp/current/spark2-client/conf/:/usr/hdp/current/spark2-client/jars/*:/usr/hdp/3.1.4.0-315/hadoop/conf/ -Xmx1g org.apache.spark.deploy.SparkSubmit --name PySparkShell --packages org.apache.spark:spark-sql-kafka-0-10_2.11:2.3.2 pyspark-shell
+yarn      3643  3641  0 13:46 ?        00:00:00 /bin/bash -c LD_LIBRARY_PATH=/usr/hdp/current/hadoop-client/lib/native:/usr/hdp/current/hadoop-client/lib/native/Linux-amd64-64: /usr/java/oracle-jdk/bin/java -server -Xmx1024m '-XX:+UseNUMA' -Djava.io.tmpdir=/volumes/disk1/yarn/local/usercache/student559_20/appcache/application_1640106212587_0172/container_e03_1640106212587_0172_01_000002/tmp '-Dspark.driver.port=37332' '-Dspark.history.ui.port=18081' -Dspark.yarn.app.container.log.dir=/volumes/disk1/yarn/log/application_1640106212587_0172/container_e03_1640106212587_0172_01_000002 -XX:OnOutOfMemoryError='kill %p' org.apache.spark.executor.CoarseGrainedExecutorBackend --driver-url spark://CoarseGrainedScheduler@bigdataanalytics-worker-3.mcs.local:37332 --executor-id 1 --hostname bigdataanalytics-worker-3.mcs.local --cores 1 --app-id application_1640106212587_0172 --user-class-path file:/volumes/disk1/yarn/local/usercache/student559_20/appcache/application_1640106212587_0172/container_e03_1640106212587_0172_01_000002/__app__.jar --user-class-path file:/volumes/disk1/yarn/local/usercache/student559_20/appcache/application_1640106212587_0172/container_e03_1640106212587_0172_01_000002/org.apache.spark_spark-sql-kafka-0-10_2.11-2.3.2.jar --user-class-path file:/volumes/disk1/yarn/local/usercache/student559_20/appcache/application_1640106212587_0172/container_e03_1640106212587_0172_01_000002/org.apache.kafka_kafka-clients-0.10.0.1.jar --user-class-path file:/volumes/disk1/yarn/local/usercache/student559_20/appcache/application_1640106212587_0172/container_e03_1640106212587_0172_01_000002/org.spark-project.spark_unused-1.0.0.jar --user-class-path file:/volumes/disk1/yarn/local/usercache/student559_20/appcache/application_1640106212587_0172/container_e03_1640106212587_0172_01_000002/net.jpountz.lz4_lz4-1.3.0.jar --user-class-path file:/volumes/disk1/yarn/local/usercache/student559_20/appcache/application_1640106212587_0172/container_e03_1640106212587_0172_01_000002/org.xerial.snappy_snappy-java-1.1.2.6.jar --user-class-path file:/volumes/disk1/yarn/local/usercache/student559_20/appcache/application_1640106212587_0172/container_e03_1640106212587_0172_01_000002/org.slf4j_slf4j-api-1.7.16.jar 1>/volumes/disk1/yarn/log/application_1640106212587_0172/container_e03_1640106212587_0172_01_000002/stdout 2>/volumes/disk1/yarn/log/application_1640106212587_0172/container_e03_1640106212587_0172_01_000002/stderr
+yarn      3662  3643  0 13:46 ?        00:00:13 /usr/java/oracle-jdk/bin/java -server -Xmx1024m -XX:+UseNUMA -Djava.io.tmpdir=/volumes/disk1/yarn/local/usercache/student559_20/appcache/application_1640106212587_0172/container_e03_1640106212587_0172_01_000002/tmp -Dspark.driver.port=37332 -Dspark.history.ui.port=18081 -Dspark.yarn.app.container.log.dir=/volumes/disk1/yarn/log/application_1640106212587_0172/container_e03_1640106212587_0172_01_000002 -XX:OnOutOfMemoryError=kill %p org.apache.spark.executor.CoarseGrainedExecutorBackend --driver-url spark://CoarseGrainedScheduler@bigdataanalytics-worker-3.mcs.local:37332 --executor-id 1 --hostname bigdataanalytics-worker-3.mcs.local --cores 1 --app-id application_1640106212587_0172 --user-class-path file:/volumes/disk1/yarn/local/usercache/student559_20/appcache/application_1640106212587_0172/container_e03_1640106212587_0172_01_000002/__app__.jar --user-class-path file:/volumes/disk1/yarn/local/usercache/student559_20/appcache/application_1640106212587_0172/container_e03_1640106212587_0172_01_000002/org.apache.spark_spark-sql-kafka-0-10_2.11-2.3.2.jar --user-class-path file:/volumes/disk1/yarn/local/usercache/student559_20/appcache/application_1640106212587_0172/container_e03_1640106212587_0172_01_000002/org.apache.kafka_kafka-clients-0.10.0.1.jar --user-class-path file:/volumes/disk1/yarn/local/usercache/student559_20/appcache/application_1640106212587_0172/container_e03_1640106212587_0172_01_000002/org.spark-project.spark_unused-1.0.0.jar --user-class-path file:/volumes/disk1/yarn/local/usercache/student559_20/appcache/application_1640106212587_0172/container_e03_1640106212587_0172_01_000002/net.jpountz.lz4_lz4-1.3.0.jar --user-class-path file:/volumes/disk1/yarn/local/usercache/student559_20/appcache/application_1640106212587_0172/container_e03_1640106212587_0172_01_000002/org.xerial.snappy_snappy-java-1.1.2.6.jar --user-class-path file:/volumes/disk1/yarn/local/usercache/student559_20/appcache/application_1640106212587_0172/container_e03_1640106212587_0172_01_000002/org.slf4j_slf4j-api-1.7.16.jar
+kafka     5969     1  1  2021 ?        11:46:33 /usr/java/oracle-jdk/bin/java -Xmx1G -Xms1G -server -XX:+UseG1GC -XX:MaxGCPauseMillis=20 -XX:InitiatingHeapOccupancyPercent=35 -XX:+ExplicitGCInvokesConcurrent -Djava.awt.headless=true -Xloggc:/var/log/kafka/kafkaServer-gc.log -verbose:gc -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+PrintGCTimeStamps -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=10 -XX:GCLogFileSize=100M -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dkafka.logs.dir=/var/log/kafka -Dlog4j.configuration=file:/usr/hdp/3.1.4.0-315/kafka/bin/../config/log4j.properties -cp /usr/lib/ambari-metrics-kafka-sink/ambari-metrics-kafka-sink.jar:/usr/lib/ambari-metrics-kafka-sink/lib/*:/usr/lib/ambari-metrics-kafka-sink/ambari-metrics-kafka-sink.jar:/usr/lib/ambari-metrics-kafka-sink/lib/*:/usr/lib/ambari-metrics-kafka-sink/ambari-metrics-kafka-sink.jar:/usr/lib/ambari-metrics-kafka-sink/lib/*:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/activation-1.1.1.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/aopalliance-repackaged-2.5.0-b42.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/argparse4j-0.7.0.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/audience-annotations-0.5.0.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/caffeine-2.6.1.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/commons-lang3-3.5.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/connect-api-2.0.0.3.1.4.0-315.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/connect-basic-auth-extension-2.0.0.3.1.4.0-315.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/connect-file-2.0.0.3.1.4.0-315.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/connect-json-2.0.0.3.1.4.0-315.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/connect-runtime-2.0.0.3.1.4.0-315.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/connect-transforms-2.0.0.3.1.4.0-315.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/guava-20.0.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/hk2-api-2.5.0-b42.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/hk2-locator-2.5.0-b42.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/hk2-utils-2.5.0-b42.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/jackson-annotations-2.9.9.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/jackson-core-2.9.9.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/jackson-databind-2.9.9.1.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/jackson-jaxrs-base-2.9.9.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/jackson-jaxrs-json-provider-2.9.9.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/jackson-module-jaxb-annotations-2.9.9.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/javassist-3.22.0-CR2.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/javax.annotation-api-1.2.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/javax.inject-1.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/javax.inject-2.5.0-b42.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/javax.servlet-api-3.1.0.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/javax.ws.rs-api-2.1.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/jaxb-api-2.3.0.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/jersey-client-2.27.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/jersey-common-2.27.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/jersey-container-servlet-2.27.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/jersey-container-servlet-core-2.27.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/jersey-hk2-2.27.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/jersey-media-jaxb-2.27.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/jersey-server-2.27.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/jetty-client-9.4.18.v20190429.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/jetty-continuation-9.4.18.v20190429.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/jetty-http-9.4.18.v20190429.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/jetty-io-9.4.18.v20190429.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/jetty-security-9.4.18.v20190429.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/jetty-server-9.4.18.v20190429.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/jetty-servlet-9.4.18.v20190429.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/jetty-servlets-9.4.18.v20190429.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/jetty-util-9.4.18.v20190429.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/jopt-simple-5.0.4.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/kafka_2.11-2.0.0.3.1.4.0-315.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/kafka_2.11-2.0.0.3.1.4.0-315-sources.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/kafka_2.12-2.0.0.3.1.4.0-315.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/kafka-clients-2.0.0.3.1.4.0-315.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/kafka-ganglia-2.0.0.3.1.4.0-315.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/kafka-log4j-appender-2.0.0.3.1.4.0-315.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/kafka-streams-2.0.0.3.1.4.0-315.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/kafka-streams-examples-2.0.0.3.1.4.0-315.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/kafka-streams-scala_2.11-2.0.0.3.1.4.0-315.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/kafka-streams-test-utils-2.0.0.3.1.4.0-315.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/kafka-tools-2.0.0.3.1.4.0-315.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/log4j-1.2.17.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/lz4-java-1.4.1.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/maven-artifact-3.5.3.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/metrics-core-2.2.0.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/metrics-ganglia-2.2.0.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/osgi-resource-locator-1.0.1.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/plexus-utils-3.1.0.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/ranger-kafka-plugin-impl:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/ranger-kafka-plugin-shim-1.2.0.3.1.4.0-315.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/ranger-plugin-classloader-1.2.0.3.1.4.0-315.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/reflections-0.9.11.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/rocksdbjni-5.7.3.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/scala-library-2.11.12.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/scala-library-2.12.6.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/scala-logging_2.11-3.9.0.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/scala-logging_2.12-3.9.0.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/scala-reflect-2.11.12.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/scala-reflect-2.12.6.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/slf4j-api-1.7.25.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/slf4j-log4j12-1.7.25.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/snappy-java-1.1.7.1.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/validation-api-1.1.0.Final.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/zkclient-0.10.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/zookeeper-3.4.14.jar:/usr/hdp/3.1.4.0-315/kafka/bin/../libs/zookeeper.jar kafka.Kafka /usr/hdp/3.1.4.0-315/kafka/config/server.properties
+student+ 10908 10863  1 14:00 pts/1    00:00:17 /usr/java/oracle-jdk/bin/java -Dhdp.version=3.1.4.0-315 -cp /usr/hdp/current/spark2-client/conf/:/usr/hdp/current/spark2-client/jars/*:/usr/hdp/3.1.4.0-315/hadoop/conf/ -Xmx1g org.apache.spark.deploy.SparkSubmit --master local[1] --name PySparkShell --packages org.apache.spark:spark-sql-kafka-0-10_2.11:2.3.2 pyspark-shell
+student+ 17271 14851  0 14:14 pts/4    00:00:00 grep --color=auto kafka
+
+[student559_13@bigdataanalytics-worker-3 ~]$ cd /usr/hdp/current/kafka-broker/bin/
+
+[student559_13@bigdataanalytics-worker-3 bin]$ ls
+connect-distributed.sh        kafka-consumer-groups.sh             kafka-producer-perf-test.sh         kafka-verifiable-consumer.sh
+connect-standalone.sh         kafka-consumer-perf-test.sh          kafka-reassign-partitions.sh        kafka-verifiable-producer.sh
+kafka                         kafka-delegation-tokens.sh           kafka-replica-verification.sh       trogdor.sh
+kafka-acls.sh                 kafka-delete-records.sh              kafka-run-class.sh                  windows
+kafka-broker-api-versions.sh  kafka-dump-log.sh                    kafka-server-start.sh               zookeeper-security-migration.sh
+kafka-configs.sh              kafka-log-dirs.sh                    kafka-server-stop.sh                zookeeper-server-start.sh
+kafka-console-consumer.sh     kafka-mirror-maker.sh                kafka-streams-application-reset.sh  zookeeper-server-stop.sh
+kafka-console-producer.sh     kafka-preferred-replica-election.sh  kafka-topics.sh                     zookeeper-shell.sh
+
+[student559_13@bigdataanalytics-worker-3 bin]$ ./kafka-topics.sh --list --zookeeper bigdataanalytics-worker-3:2181
+898_1
+MTG
+__consumer_offsets
+cherneev-test
+cherneev_test
+covid
+daryaGre
+daryaGre_les2
+daryaGre_sink
+incident_event_json
+life_expectancy
+markevich
+my_iris_sink
+oganesyan_covid
+order_items
+orders_json
+s559_6
+shadrin-iris
+shadrin_iris
+shadrin_iris_sink
+student559_12
+student559_8_lesson2
+test-lesson2
+test_lesson2_1
+test_lesson_2_sapr
+tolstykov_les4
+tolstykov_les4_sink
+
+[student559_13@bigdataanalytics-worker-3 bin]$ ./kafka-console-consumer.sh
+The console consumer is a tool that reads data from Kafka and outputs it to standard output.
+Option                                   Description
+------                                   -----------
+--bootstrap-server <String: server to    REQUIRED: The server(s) to connect to.
+  connect to>
+--consumer-property <String:             A mechanism to pass user-defined
+  consumer_prop>                           properties in the form key=value to
+                                           the consumer.
+--consumer.config <String: config file>  Consumer config properties file. Note
+                                           that [consumer-property] takes
+                                           precedence over this config.
+--enable-systest-events                  Log lifecycle events of the consumer
+                                           in addition to logging consumed
+                                           messages. (This is specific for
+                                           system tests.)
+--formatter <String: class>              The name of a class to use for
+                                           formatting kafka messages for
+                                           display. (default: kafka.tools.
+                                           DefaultMessageFormatter)
+--from-beginning                         If the consumer does not already have
+                                           an established offset to consume
+                                           from, start with the earliest
+                                           message present in the log rather
+                                           than the latest message.
+--group <String: consumer group id>      The consumer group id of the consumer.
+--isolation-level <String>               Set to read_committed in order to
+                                           filter out transactional messages
+                                           which are not committed. Set to
+                                           read_uncommittedto read all
+                                           messages. (default: read_uncommitted)
+--key-deserializer <String:
+  deserializer for key>
+--max-messages <Integer: num_messages>   The maximum number of messages to
+                                           consume before exiting. If not set,
+                                           consumption is continual.
+--offset <String: consume offset>        The offset id to consume from (a non-
+                                           negative number), or 'earliest'
+                                           which means from beginning, or
+                                           'latest' which means from end
+                                           (default: latest)
+--partition <Integer: partition>         The partition to consume from.
+                                           Consumption starts from the end of
+                                           the partition unless '--offset' is
+                                           specified.
+--property <String: prop>                The properties to initialize the
+                                           message formatter. Default
+                                           properties include:
+                                                print.timestamp=true|false
+                                                print.key=true|false
+                                                print.value=true|false
+                                                key.separator=<key.separator>
+                                                line.separator=<line.separator>
+                                                key.deserializer=<key.deserializer>
+                                                value.deserializer=<value.
+                                           deserializer>
+                                         Users can also pass in customized
+                                           properties for their formatter; more
+                                           specifically, users can pass in
+                                           properties keyed with 'key.
+                                           deserializer.' and 'value.
+                                           deserializer.' prefixes to configure
+                                           their deserializers.
+--skip-message-on-error                  If there is an error when processing a
+                                           message, skip it instead of halt.
+--timeout-ms <Integer: timeout_ms>       If specified, exit if no message is
+                                           available for consumption for the
+                                           specified interval.
+--topic <String: topic>                  The topic id to consume on.
+--value-deserializer <String:
+  deserializer for values>
+--whitelist <String: whitelist>          Whitelist of topics to include for
+                                           consumption.
+                                           
+[student559_13@bigdataanalytics-worker-3 bin]$ ./kafka-console-consumer.sh --topic shadrin_iris --bootstrap-server bigdataanalytics-worker-3:6667 --from-beginning --max-messages 10
+[
+  {"sepalLength": 5.1, "sepalWidth": 3.5, "petalLength": 1.4, "petalWidth": 0.2, "species": "setosa"},
+  {"sepalLength": 4.9, "sepalWidth": 3.0, "petalLength": 1.4, "petalWidth": 0.2, "species": "setosa"},
+  {"sepalLength": 4.7, "sepalWidth": 3.2, "petalLength": 1.3, "petalWidth": 0.2, "species": "setosa"},
+  {"sepalLength": 4.6, "sepalWidth": 3.1, "petalLength": 1.5, "petalWidth": 0.2, "species": "setosa"},
+  {"sepalLength": 5.0, "sepalWidth": 3.6, "petalLength": 1.4, "petalWidth": 0.2, "species": "setosa"},
+  {"sepalLength": 5.4, "sepalWidth": 3.9, "petalLength": 1.7, "petalWidth": 0.4, "species": "setosa"},
+  {"sepalLength": 4.6, "sepalWidth": 3.4, "petalLength": 1.4, "petalWidth": 0.3, "species": "setosa"},
+  {"sepalLength": 5.0, "sepalWidth": 3.4, "petalLength": 1.5, "petalWidth": 0.2, "species": "setosa"},
+  {"sepalLength": 4.4, "sepalWidth": 2.9, "petalLength": 1.4, "petalWidth": 0.2, "species": "setosa"},
+Processed a total of 10 messages
+
+[student559_13@bigdataanalytics-worker-3 bin]$ ./kafka-topics.sh --zookeeper bigdataanalytics-worker-3:2181 --create --topic test_lesson2 --partitions 3 --replication-factor 2
+WARNING: Due to limitations in metric names, topics with a period ('.') or underscore ('_') could collide. To avoid issues it is best to use either, but not both.
+Created topic "test_lesson2".
+
+[student559_13@bigdataanalytics-worker-3 bin]$ ./kafka-topics.sh --zookeeper bigdataanalytics-worker-3:2181 --describe --topic test_lesson2
+Topic:test_lesson2      PartitionCount:3        ReplicationFactor:2     Configs:
+        Topic: test_lesson2     Partition: 0    Leader: 1002    Replicas: 1002,1001     Isr: 1002,1001
+        Topic: test_lesson2     Partition: 1    Leader: 1003    Replicas: 1003,1002     Isr: 1003,1002
+        Topic: test_lesson2     Partition: 2    Leader: 1004    Replicas: 1004,1003     Isr: 1004,1003
+
+[student559_13@bigdataanalytics-worker-3 bin]$ ./kafka-console-consumer.sh --topic test_lesson2 --bootstrap-server bigdataanalytics-worker-3:6667
+message 1
+message 2
+message 3
+message 4
+message 5
+^CProcessed a total of 5 messages
+
+[student559_13@bigdataanalytics-worker-3 bin]$ ./kafka-console-consumer.sh --topic test_lesson2 --bootstrap-server bigdataanalytics-worker-3:6667
+message 6
+message 7
+message 8
+^CProcessed a total of 3 messages
+
+[student559_13@bigdataanalytics-worker-3 bin]$ ./kafka-console-consumer.sh --topic test_lesson2 --bootstrap-server bigdataanalytics-worker-3:6667 --from-beginning
+message 2
+message 5
+message 8
+message 3
+message 6
+message 1
+message 4
+message 7
+^CProcessed a total of 8 messages
+
+[student559_13@bigdataanalytics-worker-3 bin]$ ./kafka-console-consumer.sh --topic test_lesson2 --bootstrap-server bigdataanalytics-worker-3:6667 --from-beginning --max-messages 3
+message 2
+message 5
+message 8
+Processed a total of 3 messages
+
+[student559_13@bigdataanalytics-worker-3 bin]$ ./kafka-console-consumer.sh --topic test_lesson2 --bootstrap-server bigdataanalytics-worker-3:6667 --from-beginning
+message 2
+message 5
+message 8
+message 3
+message 6
+message 1
+message 4
+message 7
+message 9
+^CProcessed a total of 9 messages
+
+[student559_13@bigdataanalytics-worker-3 bin]$ ./kafka-topics.sh --zookeeper bigdataanalytics-worker-3:2181 --delete --topic test_lesson2
+Topic test_lesson2 is marked for deletion.
+Note: This will have no impact if delete.topic.enable is not set to true.
+
+[student559_13@bigdataanalytics-worker-3 bin]$ ./kafka-topics.sh --list --zookeeper bigdataanalytics-worker-3:2181
+898_1
+MTG
+__consumer_offsets
+cherneev-test
+cherneev_test
+covid
+daryaGre
+daryaGre_les2
+daryaGre_sink
+incident_event_json
+life_expectancy
+markevich
+my_iris_sink
+oganesyan_covid
+order_items
+orders_json
+s559_6
+shadrin-iris
+shadrin_iris
+shadrin_iris_sink
+student559_12
+student559_8_lesson2
+test-lesson2
+test_lesson2_1
+test_lesson_2_sapr
+tolstykov_les4
+tolstykov_les4_sink
+
+[student559_13@bigdataanalytics-worker-3 bin]$ ./kafka-console-consumer.sh --topic shadrin_iris --bootstrap-server bigdataanalytics-worker-3:6667 --from-beginning --max-messages 10
+[
+  {"sepalLength": 5.1, "sepalWidth": 3.5, "petalLength": 1.4, "petalWidth": 0.2, "species": "setosa"},
+  {"sepalLength": 4.9, "sepalWidth": 3.0, "petalLength": 1.4, "petalWidth": 0.2, "species": "setosa"},
+  {"sepalLength": 4.7, "sepalWidth": 3.2, "petalLength": 1.3, "petalWidth": 0.2, "species": "setosa"},
+  {"sepalLength": 4.6, "sepalWidth": 3.1, "petalLength": 1.5, "petalWidth": 0.2, "species": "setosa"},
+  {"sepalLength": 5.0, "sepalWidth": 3.6, "petalLength": 1.4, "petalWidth": 0.2, "species": "setosa"},
+  {"sepalLength": 5.4, "sepalWidth": 3.9, "petalLength": 1.7, "petalWidth": 0.4, "species": "setosa"},
+  {"sepalLength": 4.6, "sepalWidth": 3.4, "petalLength": 1.4, "petalWidth": 0.3, "species": "setosa"},
+  {"sepalLength": 5.0, "sepalWidth": 3.4, "petalLength": 1.5, "petalWidth": 0.2, "species": "setosa"},
+  {"sepalLength": 4.4, "sepalWidth": 2.9, "petalLength": 1.4, "petalWidth": 0.2, "species": "setosa"},
+Processed a total of 10 messages
+
+[student559_13@bigdataanalytics-worker-3 bin]$ ./kafka-console-consumer.sh --topic shadrin_iris --bootstrap-server bigdataanalytics-worker-3:6667 --from-beginning --max-messages 5 --offset 5
+The partition is required when offset is specified.
+
+[student559_13@bigdataanalytics-worker-3 bin]$ ./kafka-topics.sh --zookeeper bigdataanalytics-worker-3:2181 --describe --topic shadrin_iris
+Topic:shadrin_iris      PartitionCount:1        ReplicationFactor:1     Configs:
+        Topic: shadrin_iris     Partition: 0    Leader: 1002    Replicas: 1002  Isr: 1002
+
+[student559_13@bigdataanalytics-worker-3 bin]$ ./kafka-console-consumer.sh --topic shadrin_iris --bootstrap-server bigdataanalytics-worker-3:6667 --from-beginning --max-messages 5 --offset 5 --partition 1002
+Options from-beginning and offset cannot be specified together.
+
+[student559_13@bigdataanalytics-worker-3 bin]$ ./kafka-console-consumer.sh --topic shadrin_iris --bootstrap-server bigdataanalytics-worker-3:6667 --max-messages 5 --offset 5 --partition 1002
+[2022-01-23 15:19:30,270] ERROR [Consumer clientId=consumer-1, groupId=console-consumer-74732] Offset commit failed on partition shadrin_iris-1002 at offset 5: This server does not host this topic-partition. (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator)
+Processed a total of 0 messages
+
+[student559_13@bigdataanalytics-worker-3 bin]$ ./kafka-console-consumer.sh --topic shadrin_iris --bootstrap-server bigdataanalytics-worker-3:6667 --max-messages 5 --offset 5 --partition 0
+  {"sepalLength": 5.0, "sepalWidth": 3.6, "petalLength": 1.4, "petalWidth": 0.2, "species": "setosa"},
+  {"sepalLength": 5.4, "sepalWidth": 3.9, "petalLength": 1.7, "petalWidth": 0.4, "species": "setosa"},
+  {"sepalLength": 4.6, "sepalWidth": 3.4, "petalLength": 1.4, "petalWidth": 0.3, "species": "setosa"},
+  {"sepalLength": 5.0, "sepalWidth": 3.4, "petalLength": 1.5, "petalWidth": 0.2, "species": "setosa"},
+  {"sepalLength": 4.4, "sepalWidth": 2.9, "petalLength": 1.4, "petalWidth": 0.2, "species": "setosa"},
+Processed a total of 5 messages
+[student559_13@bigdataanalytics-worker-3 bin]$ ./kafka-console-consumer.sh --topic shadrin_iris --bootstrap-server bigdataanalytics-worker-3:6667 --from-beginning --max-messages 10
+[
+  {"sepalLength": 5.1, "sepalWidth": 3.5, "petalLength": 1.4, "petalWidth": 0.2, "species": "setosa"},
+  {"sepalLength": 4.9, "sepalWidth": 3.0, "petalLength": 1.4, "petalWidth": 0.2, "species": "setosa"},
+  {"sepalLength": 4.7, "sepalWidth": 3.2, "petalLength": 1.3, "petalWidth": 0.2, "species": "setosa"},
+  {"sepalLength": 4.6, "sepalWidth": 3.1, "petalLength": 1.5, "petalWidth": 0.2, "species": "setosa"},
+  {"sepalLength": 5.0, "sepalWidth": 3.6, "petalLength": 1.4, "petalWidth": 0.2, "species": "setosa"},
+  {"sepalLength": 5.4, "sepalWidth": 3.9, "petalLength": 1.7, "petalWidth": 0.4, "species": "setosa"},
+  {"sepalLength": 4.6, "sepalWidth": 3.4, "petalLength": 1.4, "petalWidth": 0.3, "species": "setosa"},
+  {"sepalLength": 5.0, "sepalWidth": 3.4, "petalLength": 1.5, "petalWidth": 0.2, "species": "setosa"},
+  {"sepalLength": 4.4, "sepalWidth": 2.9, "petalLength": 1.4, "petalWidth": 0.2, "species": "setosa"},
+Processed a total of 10 messages
+
+[student559_13@bigdataanalytics-worker-3 bin]$ ./kafka-console-consumer.sh --topic shadrin_iris --bootstrap-server bigdataanalytics-worker-3:6667 --max-messages 5 --offset earliest --partition 0
+[
+  {"sepalLength": 5.1, "sepalWidth": 3.5, "petalLength": 1.4, "petalWidth": 0.2, "species": "setosa"},
+  {"sepalLength": 4.9, "sepalWidth": 3.0, "petalLength": 1.4, "petalWidth": 0.2, "species": "setosa"},
+  {"sepalLength": 4.7, "sepalWidth": 3.2, "petalLength": 1.3, "petalWidth": 0.2, "species": "setosa"},
+  {"sepalLength": 4.6, "sepalWidth": 3.1, "petalLength": 1.5, "petalWidth": 0.2, "species": "setosa"},
+Processed a total of 5 messages
+
+[student559_13@bigdataanalytics-worker-3 bin]$ ./kafka-console-consumer.sh --topic shadrin_iris --bootstrap-server bigdataanalytics-worker-3:6667 --max-messages 6 --offset earliest --partition 0
+[
+  {"sepalLength": 5.1, "sepalWidth": 3.5, "petalLength": 1.4, "petalWidth": 0.2, "species": "setosa"},
+  {"sepalLength": 4.9, "sepalWidth": 3.0, "petalLength": 1.4, "petalWidth": 0.2, "species": "setosa"},
+  {"sepalLength": 4.7, "sepalWidth": 3.2, "petalLength": 1.3, "petalWidth": 0.2, "species": "setosa"},
+  {"sepalLength": 4.6, "sepalWidth": 3.1, "petalLength": 1.5, "petalWidth": 0.2, "species": "setosa"},
+  {"sepalLength": 5.0, "sepalWidth": 3.6, "petalLength": 1.4, "petalWidth": 0.2, "species": "setosa"},
+Processed a total of 6 messages
+[student559_13@bigdataanalytics-worker-3 bin]$ ./kafka-console-consumer.sh --topic shadrin_iris --bootstrap-server bigdataanalytics-worker-3:6667 --max-messages 6 --offset latest --partition 0
+^CProcessed a total of 0 messages
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+---READ FROM FILE
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Authenticating with public key "Imported-Openssh-Key: D:\\Prog\\MobaXterm\\keys\\id_rsa_student559_13"
+    -----------------------------------------------------------------------¬
+    ¦                 • MobaXterm Personal Edition v21.3 •                 ¦
+    ¦               (SSH client, X server and network tools)               ¦
+    ¦                                                                      ¦
+    ¦ ? SSH session to student559_13@37.139.41.176                         ¦
+    ¦   • Direct SSH      :  ?                                             ¦
+    ¦   • SSH compression :  ?                                             ¦
+    ¦   • SSH-browser     :  ?                                             ¦
+    ¦   • X11-forwarding  :  ?  (disabled or not supported by server)      ¦
+    ¦                                                                      ¦
+    ¦ ? For more info, ctrl+click on help or visit our website.            ¦
+    L-----------------------------------------------------------------------
+
+Last login: Sun Jan 23 17:47:08 2022 from 109.229.109.61
+
+[student559_13@bigdataanalytics-worker-3 ~]$ cd /usr/hdp/current/kafka-broker/bin/
+
+[student559_13@bigdataanalytics-worker-3 bin]$ ./kafka-topics.sh --zookeeper bigdataanalytics-worker-3:2181 --create --topic kutuzov_california_house_prices --partitions 1 --replication-factor 1
+WARNING: Due to limitations in metric names, topics with a period ('.') or underscore ('_') could collide. To avoid issues it is best to use either, but not both.
+Created topic "kutuzov_california_house_prices".
+
+[student559_13@bigdataanalytics-worker-3 bin]$ ./kafka-topics.sh --list --zookeeper bigdataanalytics-worker-3:2181
+898_1
+MTG
+__consumer_offsets
+cherneev-test
+cherneev_test
+covid
+daryaGre
+daryaGre_les2
+daryaGre_sink
+incident_event_json
+kutuzov_california_house_prices
+life_expectancy
+markevich
+my_iris_sink
+oganesyan_covid
+oganesyan_covid_sink
+order_items
+orders_json
+s559_6
+shadrin-iris
+shadrin_iris
+shadrin_iris_sink
+student559-12-json
+student559_12
+student559_8_lesson2
+test-lesson2
+test_lesson2
+test_lesson2_1
+test_lesson_2_sapr
+tolstykov_les4
+tolstykov_les4_sink
+
+[student559_13@bigdataanalytics-worker-3 bin]$ ./kafka-topics.sh --zookeeper bigdataanalytics-worker-3:2181 --describe --topic kutuzov_california_house_prices
+Topic:kutuzov_california_house_prices   PartitionCount:1        ReplicationFactor:1     Configs:
+        Topic: kutuzov_california_house_prices  Partition: 0    Leader: 1003    Replicas: 1003  Isr: 1003
+
+[student559_13@bigdataanalytics-worker-3 bin]$ ./kafka-console-consumer.sh --topic kutuzov_california_house_prices --bootstrap-server bigdataanalytics-worker-3:6667 --from-beginning --max-messages 5
+Id,DistrictId,Rooms,Square,LifeSquare,KitchenSquare,Floor,HouseFloor,HouseYear,Ecology_1,Ecology_2,Ecology_3,Social_1,Social_2,Social_3,Healthcare_1,Helthcare_2,Shops_1,Shops_2,Price
+14038,35,2.0,47.981561235175036,29.442750547134157,6.0,7,9.0,1969,0.089039719,B,B,33,7976,5,,0,11,B,184966.9307298416
+15053,41,3.0,65.68363987232782,40.04954252356545,8.0,7,9.0,1978,6.99893e-05,B,B,46,10309,1,240.0,1,16,B,300009.4500627274
+4765,53,2.0,44.947952764125,29.197611688048198,0.0,8,12.0,1968,0.049637257000000004,B,B,34,7759,0,229.0,1,3,B,220925.90852358093
+5809,58,2.0,53.35298135561334,52.731512048635025,9.0,8,17.0,1977,0.43788524,B,B,23,5735,3,1084.0,0,5,B,175616.22721724625
+Processed a total of 5 messages
+
+[student559_13@bigdataanalytics-worker-3 bin]$ ./kafka-console-consumer.sh --topic kutuzov_california_house_prices --bootstrap-server bigdataanalytics-worker-3:6667 --from-beginning --max-messages 15
+Id,DistrictId,Rooms,Square,LifeSquare,KitchenSquare,Floor,HouseFloor,HouseYear,Ecology_1,Ecology_2,Ecology_3,Social_1,Social_2,Social_3,Healthcare_1,Helthcare_2,Shops_1,Shops_2,Price
+14038,35,2.0,47.981561235175036,29.442750547134157,6.0,7,9.0,1969,0.089039719,B,B,33,7976,5,,0,11,B,184966.9307298416
+15053,41,3.0,65.68363987232782,40.04954252356545,8.0,7,9.0,1978,6.99893e-05,B,B,46,10309,1,240.0,1,16,B,300009.4500627274
+4765,53,2.0,44.947952764125,29.197611688048198,0.0,8,12.0,1968,0.049637257000000004,B,B,34,7759,0,229.0,1,3,B,220925.90852358093
+5809,58,2.0,53.35298135561334,52.731512048635025,9.0,8,17.0,1977,0.43788524,B,B,23,5735,3,1084.0,0,5,B,175616.22721724625
+10783,99,1.0,39.649191950029994,23.7761691108976,7.0,11,12.0,1976,0.012338886,B,B,35,5776,1,2078.0,2,4,B,150226.5316437466
+12915,59,3.0,80.38447920267191,46.68372012823429,12.0,5,17.0,2011,0.309479124,B,B,35,7715,4,990.0,0,6,B,215898.44774214897
+14549,154,2.0,62.2541135864025,37.16037741888674,7.0,3,5.0,1960,0.460556389,B,B,20,4386,14,,1,5,B,296021.2043771131
+11993,74,2.0,80.31292563185586,,0.0,14,0.0,1977,0.075778755,B,B,6,1437,3,,0,2,B,221244.15666358554
+5172,1,2.0,64.51143730838427,,1.0,9,17.0,1977,0.0071223169999999995,B,B,1,264,0,,0,1,B,229102.79599941307
+8649,23,1.0,46.46140869718414,18.915552483878766,8.0,13,17.0,2014,0.075778755,B,B,6,1437,3,,0,2,B,95380.22099316983
+15370,28,2.0,46.304906773325854,27.922584447134263,6.0,8,9.0,1973,0.118537385,B,B,30,6207,1,1183.0,1,0,B,204243.55312879704
+12427,31,3.0,68.80885909839964,45.73690563942196,7.0,1,8.0,1959,0.0,B,B,23,3684,2,,0,4,B,165534.5414246522
+6452,13,2.0,54.522804902937104,31.75975305618809,1.0,8,12.0,1999,0.090799103,B,B,74,19083,2,,5,15,B,229220.37260914012
+2408,57,3.0,68.10273923286483,39.3114930561345,8.0,6,12.0,1980,0.13321533300000002,B,B,49,11395,3,1406.0,3,4,A,252481.90832262477
+Processed a total of 15 messages
+
+[student559_13@bigdataanalytics-worker-3 bin]$ ./kafka-topics.sh --zookeeper bigdataanalytics-worker-3:2181 --delete --topic kutuzov_california_house_prices
+Topic kutuzov_california_house_prices is marked for deletion.
+Note: This will have no impact if delete.topic.enable is not set to true.
+
+[student559_13@bigdataanalytics-worker-3 bin]$ ./kafka-topics.sh --list --zookeeper bigdataanalytics-worker-3:2181
+898_1
+MTG
+__consumer_offsets
+cherneev-test
+cherneev_test
+covid
+daryaGre
+daryaGre_les2
+daryaGre_sink
+incident_event_json
+life_expectancy
+markevich
+my_iris_sink
+oganesyan_covid
+oganesyan_covid_sink
+order_items
+orders_json
+s559_6
+shadrin-iris
+shadrin_iris
+shadrin_iris_sink
+student559-12-json
+student559_12
+student559_8_lesson2
+test-lesson2
+test_lesson2
+test_lesson2_1
+test_lesson_2_sapr
+tolstykov_les4
+tolstykov_les4_sink
+
+[student559_13@bigdataanalytics-worker-3 bin]$
